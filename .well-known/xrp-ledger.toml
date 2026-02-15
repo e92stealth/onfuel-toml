@@ -1,1 +1,18 @@
+[[ISSUERS]]
+address = rh5eaqZhAwHu2Wdzhm22yFsde9NMvGCGXG
+name = "XRPTEST1"
 
+[[TOKENS]]
+issuer = rh5eaqZhAwHu2Wdzhm22yFsde9NMvGCGXG
+currency = "5852505445535431000000000000000000000000"
+name = "XRPTEST1"
+desc = "Test token for XRPL launch process verification."
+icon = "https://onfuel.co/icon.png"
+
+[[TOKENS.URLS]]
+url = "https://onfuel.co"
+type = website
+
+[[TOKENS.URLS]]
+url = https://www.tiktok.com/@digitalreset2026
+type = "social"
