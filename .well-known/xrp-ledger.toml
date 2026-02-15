@@ -1,90 +1,14 @@
-# ══════════════════════════════════════════════════════════════════
-# RESET1 TEST TOKEN — xrp-ledger.toml
-# ══════════════════════════════════════════════════════════════════
-#
-# UPLOAD TO: https://e92stealth.github.io/.well-known/xrp-ledger.toml
-#
-# ╔═══════════════════════════════════════════════════════════════╗
-# ║  CRITICAL: CORS HEADERS REQUIRED ON YOUR WEB SERVER          ║
-# ║                                                               ║
-# ║  Without CORS, browser-based explorers (Bithomp, First       ║
-# ║  Ledger, XPMarket, Xaman) SILENTLY FAIL to read this file.  ║
-# ║  The file loads in your browser but scrapers get blocked.    ║
-# ║                                                               ║
-# ║  Required response header:                                    ║
-# ║    Access-Control-Allow-Origin: *                             ║
-# ║                                                               ║
-# ║  ── Nginx ──                                                  ║
-# ║  location /.well-known/xrp-ledger.toml {                     ║
-# ║      add_header 'Access-Control-Allow-Origin' '*';            ║
-# ║      default_type application/toml;                           ║
-# ║  }                                                            ║
-# ║                                                               ║
-# ║  ── Apache (.htaccess in .well-known/) ──                     ║
-# ║  <Files "xrp-ledger.toml">                                   ║
-# ║      Header set Access-Control-Allow-Origin "*"               ║
-# ║      Header set Content-Type "application/toml"               ║
-# ║  </Files>                                                     ║
-# ║                                                               ║
-# ║  ── Cloudflare Pages (_headers file in public/) ──            ║
-# ║  /.well-known/xrp-ledger.toml                                ║
-# ║    Access-Control-Allow-Origin: *                             ║
-# ║    Content-Type: application/toml                             ║
-# ║                                                               ║
-# ║  ── Vercel (vercel.json) ──                                   ║
-# ║  { "headers": [{ "source": "/.well-known/xrp-ledger.toml",  ║
-# ║    "headers": [{"key":"Access-Control-Allow-Origin",          ║
-# ║    "value":"*"}] }] }                                         ║
-# ║                                                               ║
-# ║  VERIFY WITH:                                                 ║
-# ║  curl -I https://e92stealth.github.io/.well-known/xrp-ledger.toml     ║
-# ║  Look for: Access-Control-Allow-Origin: *                    ║
-# ║  If missing → explorers WILL NOT see your token metadata.    ║
-# ╚═══════════════════════════════════════════════════════════════╝
-
-
-# ──────────────────────────────────────────────────────────────────
-#  [METADATA] — File metadata (single brackets, per XRPL spec)
-# ──────────────────────────────────────────────────────────────────
-
-[METADATA]
-modified = 2026-02-15T00:00:00.000Z
-
-
-# ──────────────────────────────────────────────────────────────────
-#  [[ACCOUNTS]] — Official XRPL.org spec (account verification)
-# ──────────────────────────────────────────────────────────────────
-
-[[ACCOUNTS]]
-address = "rh5eaqZhAwHu2Wdzhm22yFsde9NMvGCGXG"
-desc = "RESET1 test token issuer"
-
-
-# ──────────────────────────────────────────────────────────────────
-#  [[ISSUERS]] — XLS-26 / XRPL Meta format
-#  *** THIS IS WHAT XRPL META SCRAPER LOOKS FOR ***
-#  Without this section, XRPL Meta ignores your entire TOML.
-# ──────────────────────────────────────────────────────────────────
-
 [[ISSUERS]]
 address = "rh5eaqZhAwHu2Wdzhm22yFsde9NMvGCGXG"
 name = "RESET1 Test"
 
-
-# ──────────────────────────────────────────────────────────────────
-#  [[TOKENS]] — XLS-26 / XRPL Meta format (token details)
-#  This is what Bithomp, Xaman, First Ledger, XPMarket read.
-# ──────────────────────────────────────────────────────────────────
-
 [[TOKENS]]
 issuer = "rh5eaqZhAwHu2Wdzhm22yFsde9NMvGCGXG"
-currency = "RESET1"
-currency_hex = "5245534554310000000000000000000000000000"
+currency = "5245534554310000000000000000000000000000"
 name = "RESET1 Test Token"
-desc = "test launch token — verifying metadata pipeline"
+desc = "test launch token"
 icon = "https://e92stealth.github.io/icon.png"
 
-# Social links — XRPL Meta reads these as [[TOKENS.URLS]] sub-tables
 [[TOKENS.URLS]]
 url = "https://e92stealth.github.io"
 type = "website"
@@ -92,14 +16,3 @@ type = "website"
 [[TOKENS.URLS]]
 url = "https://tiktok.com/digitalreset2026"
 type = "social"
-
-
-# ──────────────────────────────────────────────────────────────────
-#  [[CURRENCIES]] — Official XRPL.org spec (some parsers use this)
-#  Duplicating token info here for maximum compatibility.
-# ──────────────────────────────────────────────────────────────────
-
-[[CURRENCIES]]
-code = "RESET1"
-issuer = "rh5eaqZhAwHu2Wdzhm22yFsde9NMvGCGXG"
-display_decimals = 0
