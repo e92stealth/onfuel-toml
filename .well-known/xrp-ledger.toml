@@ -1,21 +1,58 @@
+# ═══════════════════════════════════════════════════════════════════
+# RESET2 Test Token — xrp-ledger.toml
+# ═══════════════════════════════════════════════════════════════════
+#
+# UPLOAD LOCATION: e92stealth.github.io/.well-known/xrp-ledger.toml
+#
+# CRITICAL: Upload this file BEFORE setting domain on issuer account.
+#   TOML live first → then domain set = verification in minutes
+#   Domain set first → then TOML = up to 24h delay
+#
+# This file includes ALL stanza types needed for full metadata:
+#   [[ACCOUNTS]]   → Bithomp domain verification
+#   [[ISSUERS]]    → xrplmeta issuer metadata
+#   [[TOKENS]]     → xrplmeta token metadata (name, desc, icon)
+#   [[TOKENS.URLS]] → Website + social links on explorers
+#
+# AFTER UPLOADING:
+#   1. Validate at: https://xrpl.org/resources/dev-tools/xrp-ledger-toml-checker
+#      Enter domain: e92stealth.github.io (NOT the full GitHub repo URL)
+#   2. Run reset2-amm.js (it validates TOML is live before proceeding)
+#   3. After domain is set on-chain, go to bithomp.com/account
+#      Sign with issuer wallet → submit icon directly
+#
+# ═══════════════════════════════════════════════════════════════════
+
+# ─── ACCOUNTS (Bithomp domain verification format) ───
 [[ACCOUNTS]]
 address = "rh5eaqZhAwHu2Wdzhm22yFsde9NMvGCGXG"
+desc = "RESET2 Test Token Issuer"
 
+# ─── ISSUERS (xrplmeta / XLS-26 format) ───
 [[ISSUERS]]
 address = "rh5eaqZhAwHu2Wdzhm22yFsde9NMvGCGXG"
-name = "RESET1 Test"
+name = "RESET2 Test"
 
+# ─── TOKENS (xrplmeta / XLS-26 format) ───
+# NOTE: Token name >3 chars requires hex currency code
 [[TOKENS]]
 issuer = "rh5eaqZhAwHu2Wdzhm22yFsde9NMvGCGXG"
-currency = "5245534554310000000000000000000000000000"
-name = "RESET1 Test Token"
-desc = "test launch token"
+currency = "5245534554320000000000000000000000000000"
+name = "RESET2 Test Token"
+desc = "XRPL test launch token for validating metadata pipeline"
 icon = "https://e92stealth.github.io/icon.png"
 
+# Website link
 [[TOKENS.URLS]]
 url = "https://e92stealth.github.io"
 type = "website"
 
+# Social link (TikTok)
 [[TOKENS.URLS]]
-url = "https://tiktok.com/digitalreset2026"
+url = "https://tiktok.com/@digitalreset2026"
 type = "social"
+
+# Social link (X/Twitter) — add your handle
+# [[TOKENS.URLS]]
+# url = "https://x.com/YOUR_HANDLE"
+# type = "social"
